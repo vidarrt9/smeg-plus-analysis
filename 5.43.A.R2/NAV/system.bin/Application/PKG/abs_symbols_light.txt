@@ -1,0 +1,14 @@
+0100e838 T _Z21SSM_DownloadAllSymbolv
+0102ac38 T _Z14ShowContentCDDb
+0102c014 T _Z13ShowContentEDv
+010313e0 T _Z19ShowContentObjTablev
+010324bc T _Z23ShowContentVersionTablev
+01039010 T _Z15mmf_exc_historyv
+0103912c T _Z17mmf_panic_historyv
+0103b1d8 T _Z7monitoriiP8mem_partPc
+0103b28c T _Z11monitorStopv
+0103b7a4 T _Z18monitorPrintBufferPKcb
+01045068 T _Z16SetGlobalDbgFlagv
+011202c8 T _ZN6UP_MOD15BCM_UP_ShowLogsEv
+0112b324 T _ZN15C_CONFIG_SYSTEM24CONFIG_SYSTEM_ShowStatusEv
+02023880 T altMBXTextureMemoryFree

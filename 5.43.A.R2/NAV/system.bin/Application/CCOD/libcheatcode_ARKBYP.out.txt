@@ -1,0 +1,2 @@
+0103155c T _ZN15C_OBJ_PTR_Table9GetObjPtrEtt
+013ba79c T _ZN14C_MODULE_AUDIO29Cmd_cheat_code_Arkamys_BypassEv

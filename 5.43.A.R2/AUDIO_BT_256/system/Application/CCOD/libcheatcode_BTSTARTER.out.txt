@@ -1,0 +1,16 @@
+00227f58 A memcpyNew
+0029b0c4 A _ZdlPv
+0029bf84 A _Znwj
+0029c004 A _ZnwjRKSt9nothrow_t
+0029c510 A _ZdlPvRKSt9nothrow_t
+0029c530 A _ZdlPvS_
+002a6558 A _ZNKSt12_String_base5_XlenEv
+002a6904 A _ZNKSt12_String_base5_XranEv
+002cb4c0 A memcmp
+002cb508 A memcpy
+002cb544 A memmove
+002cb9d4 A strlen
+01031404 T _ZN15C_OBJ_PTR_Table9GetObjPtrEtt
+0106da08 t strlen30
+01745f84 T _ZN10C_BCM_T2BF14CmdSetTestModeEb
+0205f8ec W _ZnwjPv

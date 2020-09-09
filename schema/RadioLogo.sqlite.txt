@@ -1,0 +1,1 @@
+CREATE TABLE [PI_Logo_List] ([ID] NOT NULL, [CC], [PI] NOT NULL, [Logo], PRIMARY KEY ([ID], [PI]));

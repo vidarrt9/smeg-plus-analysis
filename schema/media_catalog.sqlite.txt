@@ -1,0 +1,15 @@
+CREATE TABLE Device (id INTEGER PRIMARY KEY NOT NULL, vn TEXT DEFAULT '', pn TEXT DEFAULT '', bf INTEGER NOT NULL, bn INTEGER NOT NULL, date TEXT NOT NULL);
+CREATE UNIQUE INDEX i_id ON Device(id DESC);
+CREATE TABLE AudioPlaylist (id INTEGER ,idpl INTEGER,fn TEXT,dn TEXT,nsongs INTEGER,PRIMARY KEY(id,idpl));
+CREATE UNIQUE INDEX i_ap_id_idpl ON AudioPlaylist(id DESC, idpl ASC);
+CREATE TABLE VideoFile (id INTEGER NOT NULL, idf INTEGER NOT NULL, fn TEXT, dn TEXT, vt TEXT, ts TEXT, PRIMARY KEY(id, idf));
+CREATE UNIQUE INDEX i_v_id_idf ON VideoFile(id DESC,idf ASC);
+CREATE UNIQUE INDEX i_v_fn ON VideoFile(fn ASC);
+CREATE TABLE ImageFile (id INTEGER NOT NULL, idf INTEGER NOT NULL, fn TEXT, PRIMARY KEY(id, idf));
+CREATE UNIQUE INDEX i_i_id_idf ON ImageFile(id DESC,idf ASC);
+CREATE UNIQUE INDEX i_i_fn ON ImageFile(fn ASC);
+CREATE TABLE [AudioFile] ([id] INTEGER NOT NULL, [idf] INTEGER NOT NULL, [fn] TEXT, [dn] TEXT, [fsfa] INTEGER DEFAULT 0, PRIMARY KEY ([id], [idf]));
+CREATE UNIQUE INDEX [i_a_fn] ON [AudioFile] ([fn] ASC);
+CREATE UNIQUE INDEX [i_a_id_idf] ON [AudioFile] ([idf] ASC, [id] DESC);
+CREATE TABLE [AudioFileTag] ([id] INTEGER NOT NULL, [idf] INTEGER NOT NULL, [art] TEXT DEFAULT '', [alb] TEXT DEFAULT '', [tit] TEXT DEFAULT '', [kin] TEXT DEFAULT '', PRIMARY KEY ([id], [idf]));
+CREATE TABLE [AudioPlaylistItem] ([id] INTEGER NOT NULL, [idpl] INTEGER NOT NULL, [idf] INTEGER NOT NULL, [path] TEXT NOT NULL, PRIMARY KEY ([id], [idpl], [idf]));

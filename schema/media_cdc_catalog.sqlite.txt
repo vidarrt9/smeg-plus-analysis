@@ -1,0 +1,9 @@
+CREATE TABLE AudioFile
+( 
+    pos INTEGER PRIMARY KEY,
+    isFile BOOLEAN NOT NULL,
+    isFake BOOLEAN NOT NULL,
+    art TEXT,
+    tit TEXT
+);
+CREATE TABLE [CDC_General] ([tafn] INTEGER, [tencl] INTEGER, [cdti] INTEGER NOT NULL, [pfn] TEXT, [isRoot] BOOLEAN NOT NULL);

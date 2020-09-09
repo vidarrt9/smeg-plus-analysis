@@ -1,0 +1,10 @@
+00296438 A _Z15EmergencyRebootv
+0030d524 A printf
+0058867c A taskSpawn
+00589a2c A taskDelay
+01031404 T _ZN15C_OBJ_PTR_Table9GetObjPtrEtt
+010368cc T SYSTOOL_logError
+01052e54 T _ZN17C_FS_STORAGE_CTRL11CloseDeviceEb
+0105e084 T _ZN17C_FS_STORAGE_CTRL21StaticStopRefresh_mSDEv
+0105e138 T _ZN17C_FS_STORAGE_CTRL24StaticWaitEndRefresh_mSDEi
+012916f0 T _ZN5C_KEY15set_master_infoER19type_fp_master_info

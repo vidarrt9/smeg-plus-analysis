@@ -1,0 +1,6 @@
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE TABLE [Managers] ([ManagerId] INTEGER PRIMARY KEY NOT NULL, [ManagerName] VARCHAR (255) NOT NULL UNIQUE, [Height] INT, [Width] INT, [Depth] INT, [Format] INT, [CacheAlgorithm] INT, [Ratio] INT, [MaxSize] INT);
+CREATE TRIGGER [fk_Entries_Managers_2_del1] BEFORE DELETE ON [Managers] WHEN ( old . [ManagerId] IN ( SELECT [ManagerId] FROM [Entries] GROUP BY [ManagerId] ) ) BEGIN DELETE FROM [Entries] WHERE [ManagerId] = old . [ManagerId] ; END;
+CREATE TRIGGER [fk_Entries_Managers_2_upd1] BEFORE UPDATE ON [Managers] WHEN ( old . [ManagerId] IN ( SELECT [ManagerId] FROM [Entries] GROUP BY [ManagerId] ) ) BEGIN UPDATE [Entries] SET [ManagerId] = new . [ManagerId] WHERE [ManagerId] = old . [ManagerId] ; END;
+CREATE TABLE [Entries] ([EntryId] INTEGER PRIMARY KEY NOT NULL, [EntryName] VARCHAR (255) NOT NULL UNIQUE, [ManagerId] INTEGER NOT NULL REFERENCES [Managers] ([ManagerId]) ON UPDATE RESTRICT ON DELETE CASCADE, [Size] INTEGER, [Popularity] INTEGER, [Weight] INTEGER);
+CREATE TRIGGER [fk_Entries_Managers_2_ins1] BEFORE INSERT ON [Entries] WHEN ( new . [ManagerId] NOT IN ( SELECT [ManagerId] FROM [Managers] GROUP BY [ManagerId] ) ) BEGIN SELECT RAISE ( ABORT , 'Foreign key violated: fk_Entries_Managers_2_ins1' ) ; END;

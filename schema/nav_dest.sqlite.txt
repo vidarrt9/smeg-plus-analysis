@@ -1,0 +1,15 @@
+CREATE TABLE [POI_search_result] ([name] VARCHAR, [ID] INTEGER);
+CREATE TABLE [city] ([name] VARCHAR, [ID] INTEGER);
+CREATE TABLE [crossroad] ([name] VARCHAR, [ID] INTEGER);
+CREATE TABLE [road] ([name] VARCHAR, [ID] INTEGER);
+CREATE TABLE [waypoint] ([name] VARCHAR, [ID] INTEGER);
+CREATE TABLE [POI_filter_name] ([name] VARCHAR, [ID] INTEGER);
+CREATE TABLE [last_destination] ([name] VARCHAR, [ID] INTEGER, [is_default] INTEGER);
+CREATE TABLE [country] ([name] VARCHAR, [ID] INTEGER, [is_default] INTEGER);
+CREATE TABLE IF NOT EXISTS "POI_filter_name_historic" ("Keyword" VARCHAR);
+CREATE TABLE IF NOT EXISTS "archive_historic" ("Keyword" VARCHAR);
+CREATE TABLE IF NOT EXISTS "country_historic" ("Keyword" VARCHAR,"CountryId" INTEGER);
+CREATE TABLE IF NOT EXISTS "city_historic" ("Keyword" VARCHAR,"AdmCode" BLOB, "is_epc" BOOL);
+CREATE TABLE IF NOT EXISTS "road_historic" ("Keyword" VARCHAR,"RoadCode" BLOB);
+CREATE TABLE IF NOT EXISTS "keyboard_road_historic" ("Keyword" VARCHAR,"RoadCode" BLOB);
+CREATE TABLE IF NOT EXISTS "keyboard_city_historic" ("Keyword" VARCHAR, "AdmCode" BLOB, "is_epc" BOOL);

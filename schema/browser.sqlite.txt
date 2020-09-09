@@ -1,0 +1,7 @@
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE TABLE history(id INTEGER PRIMARY KEY AUTOINCREMENT, visits INTEGER, url VARCHAR UNIQUE, title VARCHAR, favicon VARCHAR, date DATETIME);
+CREATE TABLE bookmarks(id INTEGER PRIMARY KEY AUTOINCREMENT, url VARCHAR , title VARCHAR, favicon VARCHAR, "date" DATETIME);
+CREATE TABLE usernamePassword(id INTEGER PRIMARY KEY AUTOINCREMENT, url VARCHAR UNIQUE, username VARCHAR, password VARCHAR, type INTEGER);
+CREATE TABLE cookies(id INTEGER PRIMARY KEY AUTOINCREMENT, domain VARCHAR, expiration DATETIME, http_only BOOLEAN, secure BOOLEAN, name VARCHAR, path VARCHAR, value VARCHAR);
+CREATE TABLE errors(id INTEGER PRIMARY KEY AUTOINCREMENT, header INTEGER, description VARCHAR, date DATETIME);
+CREATE TABLE [preferences] ([id] INTEGER PRIMARY KEY AUTOINCREMENT, [smeg_key] VARCHAR, [homepage] VARCHAR, [cookies_accepted] BOOLEAN, [user_agent] VARCHAR, [portal_configured] BOOLEAN, [save_last_visited_page] BOOLEAN, [bookmarks_sort_type] INTEGER, [history_sort_type] INTEGER, [popup_accepted] BOOLEAN, [offset_utc] INTEGER);

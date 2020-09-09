@@ -1,0 +1,2 @@
+0103155c T _ZN15C_OBJ_PTR_Table9GetObjPtrEtt
+01745dec T _ZN10C_BCM_T2BF23CmdSetTestChannelPower0Eh

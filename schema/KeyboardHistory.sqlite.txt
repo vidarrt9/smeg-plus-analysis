@@ -1,0 +1,11 @@
+CREATE TABLE [contact_firstname] ([id] INTEGER PRIMARY KEY ASC AUTOINCREMENT, [field] VARCHAR UNIQUE ON CONFLICT REPLACE);
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE TRIGGER [contact_firstname_check] AFTER INSERT ON [contact_firstname] WHEN (SELECT count(id) FROM contact_firstname) > 15 BEGIN DELETE FROM contact_firstname WHERE id = (SELECT min(id) FROM contact_firstname); END;
+CREATE TABLE [contact_surname] ([id] INTEGER PRIMARY KEY ASC AUTOINCREMENT, [field] VARCHAR UNIQUE ON CONFLICT REPLACE);
+CREATE TRIGGER [contact_surname_check] AFTER INSERT ON [contact_surname] WHEN (SELECT count(id) FROM contact_surname) > 15 BEGIN DELETE FROM contact_surname WHERE id = (SELECT min(id) FROM contact_surname); END;
+CREATE TABLE [contact_town] ([id] INTEGER PRIMARY KEY ASC AUTOINCREMENT, [field] VARCHAR UNIQUE ON CONFLICT REPLACE);
+CREATE TRIGGER [contact_town_check] AFTER INSERT ON [contact_town] WHEN (SELECT count(id) FROM contact_town) > 15 BEGIN DELETE FROM contact_town WHERE id = (SELECT min(id) FROM contact_town); END;
+CREATE TABLE [contact_street] ([id] INTEGER PRIMARY KEY ASC AUTOINCREMENT, [field] VARCHAR UNIQUE ON CONFLICT REPLACE);
+CREATE TRIGGER [contact_street_check] AFTER INSERT ON [contact_street] WHEN (SELECT count(id) FROM contact_street) > 15 BEGIN DELETE FROM contact_street WHERE id = (SELECT min(id) FROM contact_street); END;
+CREATE TABLE [contact_email] ([id] INTEGER PRIMARY KEY ASC AUTOINCREMENT, [field] VARCHAR UNIQUE ON CONFLICT REPLACE);
+CREATE TRIGGER [contact_email_check] AFTER INSERT ON [contact_email] WHEN (SELECT count(id) FROM contact_email) > 15 BEGIN DELETE FROM contact_email WHERE id = (SELECT min(id) FROM contact_email); END;

@@ -1,0 +1,3 @@
+0103155c T _ZN15C_OBJ_PTR_Table9GetObjPtrEtt
+01036a24 T SYSTOOL_logError
+013e6708 T _ZN14C_MODULE_TUNER29Cmd_cheat_code_AFTT_triggeredEv

@@ -1,0 +1,35 @@
+CREATE TABLE AM_Stations_list(ID integer primary key,Frequency integer,       Rec_quality text,       check (ID >0 and ID<=30));
+CREATE TABLE FM_Stations_list(ID integer primary key,Frequency integer, 
+        Pi integer,Ps_rds text,Ps_UTF8 text,Rds_flag integer, 
+        Af_flag integer, Tp integer, Eon integer, Pty_available integer, 
+        Pty integer, Tmc_status integer, Spn text, 
+        Spn_status integer, SID integer, LTN integer, 
+        LTNBE integer, AID integer, Rec_Quality integer, 
+        Insertion_time integer, Tmc_insertion_time integer, 
+        Check(ID>0 and ID<=160));
+CREATE TABLE TMC_Stations_list(  
+ID integer primary key,
+Frequency integer,
+LTN integer,
+Ps_rds VARCHAR(9),
+Ps_utf8 VARCHAR(9),
+Spn VARCHAR(9),
+SID integer,
+Pi integer,
+Rec_Quality integer,
+Country_code VARCHAR(3),
+checked_auto BOOL,
+Check(ID>0 and ID<=60));
+CREATE TABLE FM_Preset_info(ID integer primary key,         Frequency integer,PS text,PI integer, Last_freq_PI integer,         Last_freq integer,Last_PI integer,RDS_Station integer,         Check(ID>0 and ID<=16));
+CREATE TABLE AM_Preset_info(ID integer primary key,         Frequency integer, Check(ID>0 and ID<16));
+CREATE TABLE DAB_Preset_info(ID integer primary key,         IndexChannel integer, ChannelName text, EnsembleId integer, ServiceID integer,         ServiceName text,ComponentId integer, SubChannelId integer, ComponentName text,         Check(ID>0 and ID<16));
+CREATE TABLE Current_mem_index(CurrentIndex integer);
+CREATE TABLE [Data_service_journaline_list] ([ID] INTEGER PRIMARY KEY CHECK(ID>=0 and ID<50), [uiEnsembleId] TEXT, [uiServiceId] TEXT, [acJmlServiceName] TEXT, [serviceType] INTEGER);
+CREATE TABLE [Data_service_journaline_info_list_msg] ([ID] INTEGER PRIMARY KEY CHECK(ID>=0), [acTitleBlock] TEXT, [usNumberLine] INTEGER, [acContentLine] TEXT);
+CREATE TABLE [Data_service_journaline_info_title_only] ([acTitleBlock] TEXT);
+CREATE TABLE [Data_service_journaline_info_plain_text_formats] ([l_index] INTEGER, [usBlockSize] INTEGER, [dadJmlFormat] INTEGER);
+CREATE TABLE [Data_service_journaline_info_text_msg] ([acTitleBlock] TEXT, [acBodyText] TEXT);
+CREATE TABLE [Data_service_list_programme] ([ID] INTEGER PRIMARY KEY CHECK(ID >=0), [acTitleBlock] TEXT, [acStartTimeYear] INTEGER, [acStartTimeMonth] INTEGER, [acStartTimeDay] INTEGER, [acStartTimeHour] INTEGER, [acStartTimeMinute] INTEGER, [acStartTimeSecond] INTEGER, [acStopTimeHour] INTEGER, [acStopTimeMinute] INTEGER);
+CREATE TABLE [Data_service_journaline_info_menu_links] ([ID] INTEGER, [jmlObj] INTEGER, [acMenuLable] TEXT);
+CREATE TABLE [DAB_Services_list] ([ID] integer PRIMARY KEY, [IndexChannel] integer, [acChannel] text, [EnsembleID] integer, [acEnsembleName] text, [EnsembleCharSet] integer, [NumServiceInEnsemble] integer, [sOrdIdServiceInEnsemble] integer, [ServiceID] integer, [AudioServiceSupported] integer, [mediaType] integer, [acServiceName] text, [ComponentID] integer, [SubChannelID] integer, [acComponentName] text, [Pty] integer, [IndexChannelAF] integer, [SyncInfoAvailable] integer, [FM_Sync_PI] integer, [DelayFMService] integer, [UpdateTime] integer, [exclusiveService] INTEGER, CHECK (ID > 0 AND ID <= 200));
+CREATE TABLE [Data_service_journaline_info_menu_obj] ([acTitleBlock] TEXT, [usNumberLink] INTEGER, [selected_index] INTEGER, [is_root] INTEGER);

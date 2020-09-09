@@ -1,0 +1,8 @@
+CREATE TABLE pincodes (id INTEGER PRIMARY KEY AUTOINCREMENT, sim_id VARCHAR UNIQUE, pin VARCHAR, attempts_pin INTEGER, attempts_puk INTEGER);
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE TABLE devices (id INTEGER PRIMARY KEY AUTOINCREMENT, device_type INTEGER UNIQUE, priority INTEGER, roaming BOOLEAN, usability BOOLEAN);
+CREATE TABLE wifi (id INTEGER PRIMARY KEY AUTOINCREMENT, ssid VARCHAR, encryption INTEGER, authentication INTEGER, passphrase VARCHAR, dhcp BOOLEAN, ip VARCHAR, netmask VARCHAR, gateway VARCHAR, dns BOOLEAN, dns1 VARCHAR, dns2 VARCHAR, adhoc BOOLEAN);
+CREATE TABLE usb3g (id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR, password VARCHAR, apn_name VARCHAR, dial_number VARCHAR, dns BOOLEAN, dns1 VARCHAR, dns2 VARCHAR, ip BOOLEAN,  pdp BOOLEAN, ppp BOOLEAN, pdp_address VARCHAR, storePin BOOLEAN);
+CREATE TABLE wifi_list (id INTEGER PRIMARY KEY AUTOINCREMENT, ssid VARCHAR, authentication INTEGER, power INTEGER);
+CREATE TABLE errors(id INTEGER PRIMARY KEY AUTOINCREMENT, header INTEGER, description VARCHAR, date DATETIME);
+CREATE TABLE [dun] ([id] INTEGER PRIMARY KEY AUTOINCREMENT, [username] VARCHAR, [password] VARCHAR, [provider] VARCHAR, [automatic_dns] BOOLEAN, [dns1] VARCHAR, [dns2] VARCHAR, [data_transfer] INTEGER, [duration_transfer] INTEGER);

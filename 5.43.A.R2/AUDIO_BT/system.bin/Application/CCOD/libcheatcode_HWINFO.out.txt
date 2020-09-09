@@ -1,0 +1,11 @@
+0029c088 A _ZnajRKSt9nothrow_t
+0029d2e8 A _Znaj
+0049bf80 A memPartInfoGet
+00865cc0 A memSysPartId
+0101ed9c T _ZN9CMMStringC1Ev
+0101f798 T _ZNK9CMMString13GetBufferSizeE28t_cmmstring_characterSetType
+01022924 T _ZN9CMMStringD1Ev
+0102309c T _ZN9CMMString6FormatEPKcz
+01023230 T _ZNK9CMMString16SafeCopyToBufferEPci28t_cmmstring_characterSetType
+01031404 T _ZN15C_OBJ_PTR_Table9GetObjPtrEtt
+01291334 T _ZN5C_KEY15GetHardwareInfoER19t_com_mm_fp_hw_info

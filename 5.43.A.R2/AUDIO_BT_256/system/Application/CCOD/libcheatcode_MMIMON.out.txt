@@ -1,0 +1,16 @@
+00227f58 A memcpyNew
+0029b0c4 A _ZdlPv
+0029bf64 A _ZnajRKSt9nothrow_t
+0029bf84 A _Znwj
+0029c004 A _ZnwjRKSt9nothrow_t
+0029c510 A _ZdlPvRKSt9nothrow_t
+0029c530 A _ZdlPvS_
+002a6558 A _ZNKSt12_String_base5_XlenEv
+002a6904 A _ZNKSt12_String_base5_XranEv
+002cb508 A memcpy
+002cb580 A memset
+002cb9d4 A strlen
+002cbaa0 A strncpy
+008a9e4c A _ZSt7nothrow
+0106da08 t strlen30
+0205f8ec W _ZnwjPv

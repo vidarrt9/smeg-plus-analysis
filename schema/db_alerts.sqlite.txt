@@ -1,0 +1,9 @@
+CREATE TABLE silhouette ( IconId INTEGER , Vhl VARCHAR , PanelId INTEGER , IndexParam INTEGER , IconInst INTEGER , PRIMARY KEY ( PanelId , IndexParam , Vhl ) );
+CREATE TABLE PanelReference ( PanelId INTEGER , PanelName VARCHAR );
+CREATE TABLE labels ( labelId INTEGER , PanelId INTEGER , ParamIndex INTEGER , Comment VARCHAR );
+CREATE TABLE alerts ( Pointer_id INTEGER , App_id_icon_specific INTEGER , App_id_text INTEGER , Graph_inst_icon INTEGER , Graph_inst_text INTEGER , SMEG BOOL , SMEG_PLUS BOOL , Param INTEGER , Description TEXT , PRIMARY KEY ( Pointer_id , Param , Graph_inst_icon , Graph_inst_text ) );
+CREATE TABLE city_park_no_cam ( man_sel INT ( 1 ) , op_sel INT ( 1 ) , side_sel INT ( 2 ) , area_2 INT ( 6 ) , area_3 INT ( 6 ) , area_4 INT ( 1 ) , area_4a INT ( 6 ) , area_4b INT ( 6 ) , area_6 INT ( 6 ) , area_8 INT ( 6 ) , PRIMARY KEY ( man_sel , op_sel , side_sel ) );
+CREATE TABLE city_park_cam ( man_sel INT ( 1 ) , op_sel INT ( 1 ) , area_2 INT ( 6 ) , area_3 INT ( 6 ) , area_6 INT ( 6 ) , area_8 INT ( 6 ) , PRIMARY KEY ( man_sel , op_sel ) );
+CREATE TABLE vhl_param_order ( IndexParam INTEGER , IndexDrive INTEGER PRIMARY KEY , OrderIndex INTEGER , Tabs INTEGER , Comment VARCHAR );
+CREATE TABLE Vhl_list ( Config VARCHAR PRIMARY KEY , Vhl VARCHAR );
+CREATE TABLE jda_alerts ( Pointer_id INTEGER PRIMARY KEY , inst_icon INTEGER , inst_text INTEGER , id_icon INTEGER , id_text INTEGER , id_text_smal INTEGER , Description TEXT );

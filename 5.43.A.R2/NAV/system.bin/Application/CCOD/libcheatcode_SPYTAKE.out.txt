@@ -1,0 +1,2 @@
+0103155c T _ZN15C_OBJ_PTR_Table9GetObjPtrEtt
+012733f8 T _ZN9C_BCM_SPY24DirectCallAudioLongEventEv

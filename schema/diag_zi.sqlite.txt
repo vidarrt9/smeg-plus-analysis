@@ -1,0 +1,1 @@
+CREATE TABLE [ZI] ([data] VARCHAR(20), [value] INT, [idx] INTEGER);

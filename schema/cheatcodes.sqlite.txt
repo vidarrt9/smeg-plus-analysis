@@ -1,0 +1,1 @@
+CREATE TABLE [cheatcodes] ([name] VARCHAR(50) NOT NULL ON CONFLICT ABORT PRIMARY KEY ON CONFLICT ABORT UNIQUE ON CONFLICT ABORT, [is_displayable] INT DEFAULT 0, [is_configurable] INT DEFAULT 0, [max_params_number] INT DEFAULT 0, [is_official] INT DEFAULT 0, [is_synchronous] INT DEFAULT 0, [is_available_in_release] INT DEFAULT 1, [CCOD_PATH] TEXT);

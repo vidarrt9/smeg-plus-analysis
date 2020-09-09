@@ -1,0 +1,3 @@
+CREATE TABLE [InternalFileSystem] ([bf] INTEGER, [bn] INTEGER, [fn] INTEGER, [dn] INTEGER);
+CREATE TABLE [AudioFileTag] ([idf] INTEGER NOT NULL PRIMARY KEY, [art] TEXT, [alb] TEXT, [tit] TEXT, [kin] TEXT);
+CREATE TABLE [AudioFile] ([idf] INTEGER NOT NULL, [fn] TEXT, [dn] TEXT, [op-type] TEXT, [new-dest] TEXT, [fsfa] INTEGER, [isdir] INTEGER DEFAULT '0', PRIMARY KEY ([idf]));

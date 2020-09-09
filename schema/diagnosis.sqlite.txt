@@ -1,0 +1,5 @@
+CREATE TABLE [versions] ([activity] INTEGER, [failure] INTEGER);
+CREATE TABLE [activities_state] ([id] INTEGER, [state] BOOLEAN);
+CREATE TABLE [extra_data] ([boot_screen_updated] BOOLEAN);
+CREATE TABLE [failures_current_and_ack_order] ([Failure_Current_Order] INTEGER, [Failure_Ack_Order] INTEGER);
+CREATE TABLE [failures_historic] ([DIAG_FAILURE_ENUM_ID] INTEGER, [FAILURE_CURRENT_STATE] INTEGER, [Not_Transmitted_Appearance_Order] INTEGER, [Not_Transmitted_Disapearance_Order] INTEGER, [Appearance_State_Transmitted] BOOLEAN, [Disapearance_State_Transmitted] BOOLEAN);
