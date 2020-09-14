@@ -43,6 +43,8 @@ objcounts = {}
 # W   = weak object (not tagged as such)
 bsp_addr = {}
 bsp_syms = {}
+matched_libsyms = set()
+matched_objtypes = {}
 
 def read_bsp_symbols(fname):
     with open(fname, "r") as f:
@@ -69,6 +71,11 @@ def read_bsp_symbols(fname):
             if symname not in bsp_syms:
                 bsp_syms[symname] = set()
             bsp_syms[symname].add((addr, objtype, symname,))
+            if symname in refsym_names:
+                matched_libsyms.add(symname)
+                if not objtype in matched_objtypes:
+                    matched_objtypes[objtype] = 0
+                matched_objtypes[objtype] += 1
 
 if __name__ == "__main__":
     sym_ossl = os.path.join(dirname(realpath(__file__)), "openssl-0.9.8l-symbols.txt")
@@ -93,4 +100,8 @@ if __name__ == "__main__":
     print("="*80)
     print("=== Number of objects by type")
     for k, v in objcounts.items():
-        print(k, v)
+        matched = "%d" % (v)
+        if k in matched_objtypes and matched_objtypes[k] > 0:
+            matched = "%s, matched: %d" % (matched, matched_objtypes[k])
+        print(k, matched)
+    print("=== Matched library symbols: %d" % len(matched_libsyms))
