@@ -5,7 +5,9 @@ import argparse
 import os
 import sys
 import re
-from os.path import dirname, realpath
+from os.path import dirname, realpath, join as pjoin
+
+__all__ = ["refsym_names", "refsym_types", "objtypes", "objcounts", "bsp_addr", "bsp_syms", "matched_libsyms", "matched_objtypes", "read_combined", "show"]
 
 re_refsym = re.compile(r"^([^\s])\s+([^\s]+)\n?$", re.IGNORECASE | re.MULTILINE)
 re_bspsym = re.compile(r"^([0-9A-Fa-f]+)\s+?([^\s])\s+([^\s]+)\n?$", re.IGNORECASE | re.MULTILINE)
@@ -66,26 +68,29 @@ def read_bsp_symbols(fname):
             if objtype in {"A", "a"}: # absolute symbols ... TODO: look into those
                 continue # skip
             if addr not in bsp_addr:
-                bsp_addr[addr] = set()
-            bsp_addr[addr].add((addr, objtype, symname,))
+                bsp_addr[addr] = []
+            bsp_addr[addr].append((addr, objtype, symname,))
             if symname not in bsp_syms:
-                bsp_syms[symname] = set()
-            bsp_syms[symname].add((addr, objtype, symname,))
+                bsp_syms[symname] = []
+            bsp_syms[symname].append((addr, objtype, symname,))
             if symname in refsym_names:
                 matched_libsyms.add(symname)
                 if not objtype in matched_objtypes:
                     matched_objtypes[objtype] = 0
                 matched_objtypes[objtype] += 1
 
-if __name__ == "__main__":
-    sym_ossl = os.path.join(dirname(realpath(__file__)), "openssl-0.9.8l-symbols.txt")
-    sym_zlib = os.path.join(dirname(realpath(__file__)), "zlib-1.2.3-symbols.txt")
-    sym_bsp = os.path.join(dirname(realpath(__file__)), "5.43.A.R2", "symbols_bsp.txt")
+def read_combined(thisdir):
+    sym_ossl = pjoin(thisdir, "openssl-0.9.8l-symbols.txt")
+    sym_zlib = pjoin(thisdir, "zlib-1.2.3-symbols.txt")
+    sym_bsp = pjoin(thisdir, "5.43.A.R2", "symbols_bsp.txt")
     # Read reference symbols for third-party libraries
     read_reference_symbols(sym_ossl)
     read_reference_symbols(sym_zlib)
     # Read actual BSP symbols
     read_bsp_symbols(sym_bsp)
+
+def show(thisdir):
+    read_combined(thisdir)
     # Some statistics
     print("="*80)
     print("=== Addresses with more than a single symbol")
@@ -104,4 +109,5 @@ if __name__ == "__main__":
         if k in matched_objtypes and matched_objtypes[k] > 0:
             matched = "%s, matched: %d" % (matched, matched_objtypes[k])
         print(k, matched)
-    print("=== Matched library symbols: %d" % len(matched_libsyms))
+    unmatched_refsym = set(refsym_names) - matched_libsyms
+    print("=== Matched library symbols: %d of %d (unmatched: %d)" % (len(matched_libsyms), len(refsym_names), len(unmatched_refsym)))
